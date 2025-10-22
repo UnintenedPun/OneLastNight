@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 120e59cf6292a5d468fdd4b54d72f1db, type: 3}
+  m_Name: (Good)SisterItem
+  m_EditorClassIdentifier: Assembly-CSharp::ItemBaseClass
+  itemName: Rolling Pin
+  icon: {fileID: 5663257319437891245, guid: 9a0df99e2d55e684aa51b83f520dd7fd, type: 3}

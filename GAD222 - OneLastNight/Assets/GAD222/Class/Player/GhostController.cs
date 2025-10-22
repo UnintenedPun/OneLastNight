@@ -17,10 +17,15 @@ public class GhostController : MonoBehaviour
     private float interactValue = 0f;
 
     // bool to ensure we are over a character
-    private bool canInteract = false;
+    public bool canInteract = false;
 
     // bool to check is we are talking
     public bool isTalking = false;
+
+    public LayerMask itemLayer;
+    public LayerMask characterLayer;
+
+    public Collider2D interactingCollider;
 
     void Awake()
     {
@@ -59,9 +64,22 @@ public class GhostController : MonoBehaviour
         // Returns value between 1 and 0 - 1 being button pressed and 0 button release
         interactValue = context.ReadValue<float>();
 
-        if (interactValue == 1f && canInteract == true && isTalking == false)
+        if (canInteract == true && isTalking == false)
         {
             // Do Something
+            Debug.Log("Interact button attempted to be pressed");
+
+            //check to see if we are over an item or a character
+            if(interactingCollider != null)
+            {
+                if (pCollider.IsTouching(interactingCollider))
+                {
+                    PickUp pickUp = interactingCollider.GetComponent<PickUp>();
+                    pickUp.Interact();
+                    Debug.Log("over an interactable");
+                }
+            }
+            return;
         }
 
         if (interactValue == 0f && isTalking == false)
@@ -88,5 +106,55 @@ public class GhostController : MonoBehaviour
         {
             isTalking = true;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Brother")
+        {
+            interactingCollider = collision;
+            Debug.Log("sending brother info");
+            return;
+        }
+
+        if (collision.tag == "Sister")
+        {
+            interactingCollider = collision;
+            Debug.Log("sending sister info");
+            return;
+        }
+
+        if (collision.tag == "Mother")
+        {
+            interactingCollider = collision;
+            Debug.Log("sending mother info");
+            return;
+        }
+
+        if (collision.tag == "Father")
+        {
+            interactingCollider = collision;
+            Debug.Log("sending father info");
+            return;
+        }
+
+        if (collision.tag == "Uncle")
+        {
+            interactingCollider = collision;
+            Debug.Log("sending brother info");
+            return;
+        }
+
+        if (collision.tag == "Item")
+        {
+            interactingCollider = collision;
+            Debug.Log("sending item info");
+            return;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        interactingCollider = null;
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - Mother
   - Father
   - Object
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Character
+  - Item
   - 
   - 
   - 

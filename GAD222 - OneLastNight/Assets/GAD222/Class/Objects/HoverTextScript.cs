@@ -16,11 +16,6 @@ public class HoverTextScript : MonoBehaviour
         TextMesh = GetComponent<TMP_Text>();
         Init();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        TextMesh = GetComponent<TMP_Text>();
-    }
 
     private void Init()
     {
